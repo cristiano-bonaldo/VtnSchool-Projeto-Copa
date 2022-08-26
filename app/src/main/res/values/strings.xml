@@ -1,3 +1,96 @@
 <resources>
-    <string name="app_name">Teste</string>
+    <string name="app_name">Figurinhas</string>
+    <string name="falta_sticker">Faltam\n%s</string>
+
+    <string name="QAT">QAT</string>
+    <string name="ECU">ECU</string>
+    <string name="SEN">SEN</string>
+    <string name="NED">NED</string>
+
+    <string name="ENG">ENG</string>
+    <string name="IRN">IRN</string>
+    <string name="USA">USA</string>
+    <string name="WAL">WAL</string>
+
+    <string name="ARG">ARG</string>
+    <string name="KSA">KSA</string>
+    <string name="MEX">MEX</string>
+    <string name="POL">POL</string>
+
+    <string name="FRA">FRA</string>
+    <string name="AUS">AUS</string>
+    <string name="DEN">DEN</string>
+    <string name="TUN">TUN</string>
+
+    <string name="ESP">ESP</string>
+    <string name="CRC">CRC</string>
+    <string name="GER">GER</string>
+    <string name="JPN">JPN</string>
+
+    <string name="BEL">BEL</string>
+    <string name="CAN">CAN</string>
+    <string name="MAR">MAR</string>
+    <string name="CRO">CRO</string>
+
+    <string name="BRA">BRA</string>
+    <string name="SRB">SRB</string>
+    <string name="SUI">SUI</string>
+    <string name="CMR">CMR</string>
+
+    <string name="POR">POR</string>
+    <string name="GHA">GHA</string>
+    <string name="URU">URU</string>
+    <string name="KOR">KOR</string>
+
+    <string name="FWC">FWC</string>
+    <string name="COC">COC</string>
+
+    <!-- ************************************* -->
+
+    <string name="QAT_desc">Catar</string>
+    <string name="ECU_desc">Equador</string>
+    <string name="SEN_desc">Senegal</string>
+    <string name="NED_desc">Holanda</string>
+
+    <string name="ENG_desc">Englaterra</string>
+    <string name="IRN_desc">Irã</string>
+    <string name="USA_desc">Estados Unidos</string>
+    <string name="WAL_desc">País de Gales</string>
+
+    <string name="ARG_desc">Argentina</string>
+    <string name="KSA_desc">Arábia Saudita</string>
+    <string name="MEX_desc">México</string>
+    <string name="POL_desc">Polônia</string>
+
+    <string name="FRA_desc">França</string>
+    <string name="AUS_desc">Austrália</string>
+    <string name="DEN_desc">Dinamarca</string>
+    <string name="TUN_desc">Tunísia</string>
+
+    <string name="ESP_desc">Espanha</string>
+    <string name="CRC_desc">Costa Rica</string>
+    <string name="GER_desc">Alemanha</string>
+    <string name="JPN_desc">Japão</string>
+
+    <string name="BEL_desc">Bélgica</string>
+    <string name="CAN_desc">Canadá</string>
+    <string name="MAR_desc">Marracos</string>
+    <string name="CRO_desc">Croácia</string>
+
+    <string name="BRA_desc">Brasil</string>
+    <string name="SRB_desc">Sérvia</string>
+    <string name="SUI_desc">Suiça</string>
+    <string name="CMR_desc">Camarões</string>
+
+    <string name="POR_desc">Portugal</string>
+    <string name="GHA_desc">Gana</string>
+    <string name="URU_desc">Uruguai</string>
+    <string name="KOR_desc">Coreia do Sul</string>
+
+    <string name="FWC_desc">FIFA</string>
+    <string name="COC_desc">Coca-Cola</string>
+
+
+
+
 </resources>
