@@ -152,7 +152,7 @@ class MainActivity : AppCompatActivity() {
 
         imageButton.alpha = 1.0F
 
-        val maxIdx = getMaxSticker()
+        val maxIdx = getMaxSticker(prefix)
 
         listSticker.forEach { imageButton ->
             imageButton.background = resources.getDrawable(R.drawable.bt_shape_circular)
@@ -183,25 +183,25 @@ class MainActivity : AppCompatActivity() {
         mBinding.constraint.visibility = View.VISIBLE
     }
 
-    private fun getMaxSticker(): Int {
-        return when (prefix) {
+    private fun getMaxSticker(flag: String): Int {
+        return when (flag) {
             Constant.C_FWC -> { Constant.MAX_NUMBER_FWC }
             Constant.C_COC -> { Constant.MAX_NUMBER_COCA }
             else -> { Constant.MAX_NUMBER_GERAL }
         }
     }
 
-    private fun getStatusByFlag():Int {
+    private fun getStatusByFlag(flag: String):Int {
         var qtd = 0
 
-        val maxIdx = getMaxSticker()
+        val maxIdx = getMaxSticker(flag)
 
         for (idx in 0 until maxIdx) {
 
-            val n = (if (prefix == Constant.C_FWC) idx else idx + 1)
+            val n = (if (flag == Constant.C_FWC) idx else idx + 1)
             val number = n.toString().padStart(2, '0')
 
-            val status = prefUtil.getPrefBoolean("${prefix}_${number}")
+            val status = prefUtil.getPrefBoolean("${flag}_${number}")
 
             if (!status) {
                 qtd++
@@ -211,58 +211,212 @@ class MainActivity : AppCompatActivity() {
         return qtd
     }
 
+    private fun getStatusAllFlag():Int {
+        var qtd = 0
+
+        listFlag.forEach { imageButton ->
+            var q = getStatusByFlag(imageButton.tag as String)
+
+            Log.i("CVB", (imageButton.tag as String) + "-> " + q)
+            qtd += q
+        }
+
+        return qtd
+    }
+
     private fun updateInfoFlag() {
-        val id =
+        val id: Int
+        val im: Int
+
         when (this.prefix) {
-                Constant.C_QAT -> { R.string.QAT_desc }
-                Constant.C_ECU -> { R.string.ECU_desc }
-                Constant.C_SEN -> { R.string.SEN_desc }
-                Constant.C_NED -> { R.string.NED_desc }
-
-                Constant.C_ENG -> { R.string.ENG_desc }
-                Constant.C_IRN -> { R.string.IRN_desc }
-                Constant.C_USA -> { R.string.USA_desc }
-                Constant.C_WAL -> { R.string.WAL_desc }
-
-                Constant.C_ARG -> { R.string.ARG_desc }
-                Constant.C_KSA -> { R.string.KSA_desc }
-                Constant.C_MEX -> { R.string.MEX_desc }
-                Constant.C_POL -> { R.string.POL_desc }
-
-                Constant.C_FRA -> { R.string.FRA_desc }
-                Constant.C_AUS -> { R.string.AUS_desc }
-                Constant.C_DEN -> { R.string.DEN_desc }
-                Constant.C_TUN -> { R.string.TUN_desc }
-
-                Constant.C_ESP -> { R.string.ESP_desc }
-                Constant.C_CRC -> { R.string.CRC_desc }
-                Constant.C_GER -> { R.string.GER_desc }
-                Constant.C_JPN -> { R.string.JPN_desc }
-
-                Constant.C_BEL -> { R.string.BEL_desc }
-                Constant.C_CAN -> { R.string.CAN_desc }
-                Constant.C_MAR -> { R.string.MAR_desc }
-                Constant.C_CRO -> { R.string.CRO_desc }
-
-                Constant.C_BRA -> { R.string.BRA_desc }
-                Constant.C_SRB -> { R.string.SRB_desc }
-                Constant.C_SUI -> { R.string.SUI_desc }
-                Constant.C_CMR -> { R.string.CMR_desc }
-
-                Constant.C_POR -> { R.string.POR_desc }
-                Constant.C_GHA -> { R.string.GHA_desc }
-                Constant.C_URU -> { R.string.URU_desc }
-                Constant.C_KOR -> { R.string.KOR_desc }
-
-                Constant.C_FWC -> { R.string.FWC_desc }
-                Constant.C_COC -> { R.string.COC_desc }
-                else -> -1
+            Constant.C_QAT -> {
+                id = R.string.QAT_desc
+                im = R.drawable.band_quatar
             }
 
+            Constant.C_ECU -> {
+                id = R.string.ECU_desc
+                im = R.drawable.band_equador
+            }
+
+            Constant.C_SEN -> {
+                id = R.string.SEN_desc
+                im = R.drawable.band_senegal
+            }
+
+            Constant.C_NED -> {
+                id = R.string.NED_desc
+                im = R.drawable.band_holanda
+            }
+
+            Constant.C_ENG -> {
+                id = R.string.ENG_desc
+                im = R.drawable.band_englaterra
+            }
+
+            Constant.C_IRN -> {
+                id = R.string.IRN_desc
+                im = R.drawable.band_iran
+            }
+
+            Constant.C_USA -> {
+                id = R.string.USA_desc
+                im = R.drawable.band_usa
+            }
+
+            Constant.C_WAL -> {
+                id = R.string.WAL_desc
+                im = R.drawable.band_gales
+            }
+
+            Constant.C_ARG -> {
+                id = R.string.ARG_desc
+                im = R.drawable.band_argentina
+            }
+
+            Constant.C_KSA -> {
+                id = R.string.KSA_desc
+                im = R.drawable.band_arabia
+            }
+
+            Constant.C_MEX -> {
+                id = R.string.MEX_desc
+                im = R.drawable.band_mexico
+            }
+
+            Constant.C_POL -> {
+                id = R.string.POL_desc
+                im = R.drawable.band_polonia
+            }
+
+
+            Constant.C_FRA -> {
+                id = R.string.FRA_desc
+                im = R.drawable.band_franca
+            }
+
+            Constant.C_AUS -> {
+                id = R.string.AUS_desc
+                im = R.drawable.band_australia
+            }
+
+            Constant.C_DEN -> {
+                id = R.string.DEN_desc
+                im = R.drawable.band_dinamarca
+            }
+
+            Constant.C_TUN -> {
+                id = R.string.TUN_desc
+                im = R.drawable.band_tunisia
+            }
+
+            Constant.C_ESP -> {
+                id = R.string.ESP_desc
+                im = R.drawable.band_espanha
+            }
+
+            Constant.C_CRC -> {
+                id = R.string.CRC_desc
+                im = R.drawable.band_costa_rica
+            }
+
+            Constant.C_GER -> {
+                id = R.string.GER_desc
+                im = R.drawable.band_alemanha
+            }
+
+            Constant.C_JPN -> {
+                id = R.string.JPN_desc
+                im = R.drawable.band_japao
+            }
+
+
+            Constant.C_BEL -> {
+                id = R.string.BEL_desc
+                im = R.drawable.band_belgica
+            }
+
+            Constant.C_CAN -> {
+                id = R.string.CAN_desc
+                im = R.drawable.band_canada
+            }
+
+            Constant.C_MAR -> {
+                id = R.string.MAR_desc
+                im = R.drawable.band_marrocos
+            }
+
+            Constant.C_CRO -> {
+                id = R.string.CRO_desc
+                im = R.drawable.band_croacia
+            }
+
+            Constant.C_BRA -> {
+                id = R.string.BRA_desc
+                im = R.drawable.band_brasil
+            }
+
+            Constant.C_SRB -> {
+                id = R.string.SRB_desc
+                im = R.drawable.band_servia
+            }
+
+            Constant.C_SUI -> {
+                id = R.string.SUI_desc
+                im = R.drawable.band_suica
+            }
+
+            Constant.C_CMR -> {
+                id = R.string.CMR_desc
+                im = R.drawable.band_camaroes
+            }
+
+            Constant.C_POR -> {
+                id = R.string.POR_desc
+                im = R.drawable.band_portugal
+            }
+
+            Constant.C_GHA -> {
+                id = R.string.GHA_desc
+                im = R.drawable.band_gana
+            }
+
+            Constant.C_URU -> {
+                id = R.string.URU_desc
+                im = R.drawable.band_uruguai
+            }
+
+            Constant.C_KOR -> {
+                id = R.string.KOR_desc
+                im = R.drawable.band_korea
+            }
+
+            Constant.C_FWC -> {
+                id = R.string.FWC_desc
+                im = R.drawable.flag_copa_logo
+            }
+
+            Constant.C_COC -> {
+                id = R.string.COC_desc
+                im = R.drawable.flag_coca
+            }
+            else -> {
+                id = -1
+                im = -1
+            }
+        }
+
         mBinding.tvFlag.text = "${getString(id)}   [ $prefix ] "
+
+        val drawable = resources.getDrawable(im)
+        mBinding.ivFlag.setImageDrawable(drawable)
     }
 
     private fun updateInfoQtd() {
-        mBinding.tvQtd.text = getString(R.string.falta_sticker, getStatusByFlag().toString())
+        this.title =
+            getString(R.string.app_name) + " [ " +
+            getString(R.string.falta_sticker, getStatusAllFlag().toString()) + " ] "
+
+        mBinding.tvQtd.text = getString(R.string.falta_sticker, getStatusByFlag(this.prefix).toString())
     }
 }
